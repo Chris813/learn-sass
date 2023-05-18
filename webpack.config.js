@@ -1,5 +1,7 @@
 const path = require("path"); //nodejs提供的路径模块
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+//将scss文件编译输出
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 module.exports = {
   //模型
   mode: "development",
@@ -17,7 +19,7 @@ module.exports = {
     rules: [
       {
         test: /\.s[ac]ss$/,
-        use: ["style-loader", "css-loader", "sass-loader"],
+        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
       },
     ],
   },
@@ -28,10 +30,12 @@ module.exports = {
       // 新的html文件有两个特点：1. 内容和源文件一致 2. 自动引入打包生成的js等资源
       template: path.resolve(__dirname, "public/index.html"),
     }),
+    new MiniCssExtractPlugin(),
   ],
   devServer: {
     host: "localhost", // 启动服务器域名
     port: "5500", // 启动服务器端口号
     open: true, // 是否自动打开浏览器
+    static: "./dist",
   },
 };

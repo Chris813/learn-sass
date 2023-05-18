@@ -4,6 +4,8 @@ SASS Tutorial (build your own CSS library)课程笔记
 
 再+一点 webpack 练习，主要是用 webpack 编译 scss 文件
 
+`npm run watch`
+
 课程目录（从 p2 开始）：
 
 - 编译
@@ -14,3 +16,7 @@ SASS Tutorial (build your own CSS library)课程笔记
 - 使用 math
 - maps
 - loops
+- @if
+- &
+- @mixin 混入/@include
+- @function
